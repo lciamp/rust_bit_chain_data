@@ -14,5 +14,8 @@ pub async fn send_request(url: &str) -> String {
         .header("api-key", dotenv::var("API_KEY").expect("Could not find key: API_Key"))
         .send()
         .await
-        .expect("Failed to ge response.")
+        .expect("Failed to get response.")
+        .text() // string works for return value
+        .await
+        .expect("Failed to conver payload.")
 }
