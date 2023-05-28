@@ -1,4 +1,4 @@
-use dotrnv;
+use dotenv;
 use reqwest;
 use tokio;
 use serde::Result;
