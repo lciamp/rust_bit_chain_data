@@ -1,7 +1,7 @@
 use dotenv;
 use reqwest;
 use tokio;
-use serde::Result;
+use serde_json::Result;
 
 const HOST_ROOT: &str = "https://btcbook.nownodes.io/api/";
 
@@ -19,3 +19,5 @@ pub async fn send_request(url: &str) -> String {
         .await
         .expect("Failed to conver payload.")
 }
+
+pub fn blockchain_status_request() -> BlockchainStatus
