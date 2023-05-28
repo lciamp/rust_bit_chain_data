@@ -6,7 +6,7 @@ use serde::Result;
 const HOST_ROOT: &str = "https://btcbook.nownodes.io/api/";
 
 #[tokio::main]
-pub fn send_request(url: &str) -> String {
+pub async fn send_request(url: &str) -> String {
 
     let client = reqwest::Client::new();
     client
