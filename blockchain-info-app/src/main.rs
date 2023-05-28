@@ -7,5 +7,5 @@ mod blockchain_status;
 mod blockchain_transactions;
 
 fn main() {
-    println!("Hello, world!");
+    blockchain_info::blockchain_status_request();
 }

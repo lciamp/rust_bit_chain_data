@@ -3,7 +3,7 @@ use reqwest;
 use tokio;
 use serde_json::Result;
 use crate::blockchain_status_request::BlockchainStatus;
-use crate::blockchain_status_request::BlockchainAddress
+use crate::blockchain_status_request::BlockchainAddress;
 use crate::blockchain_status_request::BlockchainTransaction;
 
 const HOST_ROOT: &str = "https://btcbook.nownodes.io/api/";
@@ -23,4 +23,7 @@ pub async fn send_request(url: &str) -> String {
         .expect("Failed to conver payload.")
 }
 
-pub fn blockchain_status_request() -> BlockchainStatus
+pub fn blockchain_status_request() {
+    let response = send_request(&HOST_ROOT);
+    println!("{}", response);
+}
