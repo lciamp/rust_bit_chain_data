@@ -10,6 +10,7 @@ pub fn send_request(url: &str) -> String {
     let client = reqwest::Client::new();
     client
         .get(url)
-        .header("api-key", "01cc171a-383b-4584-ab5a-14159b5dc100")
-
+        .header("api-key", dotenv::var("API_KEY").expect("Could not find key: API_Key"))
+        .send()
+        .await
 }
