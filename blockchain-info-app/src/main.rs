@@ -9,7 +9,7 @@ mod blockchain_transaction;
 use {
     crate::blockchain_status::BlockchainStatus,
     crate::blockchain_address::BlockchainAddress,
-    //crate::blockchain_transaction::BlockchainTransaction,
+    crate::blockchain_transaction::BlockchainTransaction,
     dotenv,
     std::{thread, time},
     time::Duration,

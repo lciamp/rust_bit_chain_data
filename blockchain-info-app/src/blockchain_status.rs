@@ -1,10 +1,3 @@
-// struct fror marshaling json
-#[derive(Deserialize, Debug)]
-#[serde(rename_all = "camelCase")]
-pub struct BlockchainStatus {
-	pub blockbook: Blockbook,
-	pub backend: Backend,
-}
 
 #[derive(Deserialize, Debug)]
 #[serde(rename_all = "camelCase")]
@@ -39,4 +32,11 @@ pub struct Backend {
     // version: String,
     // subversion: String,
     // protocol_version: String
+}
+
+#[derive(Deserialize, Debug)]
+#[serde(rename_all = "camelCase")]
+pub struct BlockchainStatus {
+    pub blockbook: Blockbook,
+    pub backend: Backend,
 }
