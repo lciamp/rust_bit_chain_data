@@ -1,12 +1,12 @@
 use { 
-    dotenv;
-    reqwest;
-    tokio;
-    serde_json::Result;
-    crate::blockchain_status::BlockchainStatus;
-    crate::blockchain_address::BlockchainAddress;
-    crate::blockchain_transaction::BlockchainTransaction;
-}
+    dotenv,
+    reqwest,
+    tokio,
+    serde_json::Result,
+    crate::blockchain_status::BlockchainStatus,
+    crate::blockchain_address::BlockchainAddress,
+    crate::blockchain_transaction::BlockchainTransaction,
+};
 
 const HOST_ROOT: &str = "https://btcbook.nownodes.io/api/";
 
