@@ -2,10 +2,10 @@ use {
     dotenv,
     reqwest,
     tokio,
-    serde_json::Result,
+    //serde_json::Result,
     crate::blockchain_status::BlockchainStatus,
     crate::blockchain_address::BlockchainAddress,
-    crate::blockchain_transaction::BlockchainTransaction,
+    //crate::blockchain_transaction::BlockchainTransaction,
 };
 
 const HOST_ROOT: &str = "https://btcbook.nownodes.io/api/";
@@ -16,13 +16,13 @@ pub async fn send_request(url: &str) -> String {
     let client = reqwest::Client::new();
     client
         .get(url)
-        .header("api-key", dotenv::var("API_KEY").expect("Could not find key: API_Key"))
+        .header("api-key", dotenv::var("API_KEY").expect("Could not find key: API_KEY"))
         .send()
         .await
-        .expect("Failed to get response.")
-        .text() // string works for return value
+        .expect("Failed to get response")
+        .text()
         .await
-        .expect("Failed to conver payload.")
+        .expect("Failed to convert payload")
 }
 
 pub fn blockchain_status_request() -> BlockchainStatus {
