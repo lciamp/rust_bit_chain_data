@@ -27,3 +27,8 @@ pub fn blockchain_status_request() -> BlockchainStatus {
     let response = send_request(&HOST_ROOT);
     serde_json::from_str(&response).expect("Failed to parse JSON")
 }
+
+pub fn blockchain_address_request(address: &str) -> BlockchainAddress {
+    let response = send_request(&[HOST_ROOT, "v2/address/", &address].join(""));
+    serde_json::from_str(&response).expect("Failed to parse JSON")
+}

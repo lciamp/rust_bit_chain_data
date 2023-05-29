@@ -10,7 +10,15 @@ use crate::blockchain_status::BlockchainStatus;
 use crate::blockchain_address::BlockchainAddress;
 use crate::blockchain_transaction::BlockchainTransaction;
 
-fn main() {
+fn blockchain_info_app(address: &str){
     let blockchain_status: BlockchainStatus = blockchain_info::blockchain_status_request();
     println!("\n\nQuerying {} - chain: {}\n\n", &blockchain_status.blockbook.coin, &blockchain_status.backend.chain);
+    
+    let blockchain_address: BlockchainAddress = blockchain_info::blockchain_address_request(address;)
+    println!("\nAnalyzing ttransactions for Bitcoin address: {}", &blockchain_address.address)
+}
+
+fn main() {
+
+
 }
