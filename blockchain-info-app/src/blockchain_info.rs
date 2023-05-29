@@ -23,7 +23,7 @@ pub async fn send_request(url: &str) -> String {
         .expect("Failed to conver payload.")
 }
 
-pub fn blockchain_status_request() {
+pub fn blockchain_status_request() -> BlockchainStatus {
     let response = send_request(&HOST_ROOT);
-    println!("{}", response);
+    serde_json::from_str(&response).expect("Failed to parse JSON")
 }
