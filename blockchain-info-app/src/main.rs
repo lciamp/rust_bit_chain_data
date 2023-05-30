@@ -25,7 +25,7 @@ fn blockchain_info_app(address: &str){
     let sleep_time = Duration::from_millis(2500);
     thread::sleep(sleep_time);
 
-    println!("\nYou have a totoal of {} transactions.", &blockchain_address.txids.len())
+    println!("\nYou have a total of {} transactions.", &blockchain_address.txids.len())
 }
 
 fn main() {
