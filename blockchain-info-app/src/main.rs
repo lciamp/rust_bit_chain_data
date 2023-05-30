@@ -31,7 +31,7 @@ fn blockchain_info_app(address: &str){
     println!("\nDo you want to query these transactions? (y/n)\n");
 
     let mut command = String::new();
-    io::stdin().read_line(&mut command);
+    io::stdin().read_line(&mut command).expect("failed to load io");
 
     if command.trim().eq("y") {
         println!("\nWe will look up the following transactions:\n");
@@ -43,7 +43,21 @@ fn blockchain_info_app(address: &str){
             let mut subtotal_vin: i32 = 0;
             let mut subtotal_vout: i32 = 0;
 
-            //
+            let blockchain_transaction: BlockchainTransaction = blockchain_info::blockchain_transaction_request(&tx_id);
+
+            let match_address = String::from(address);
+
+            for tx in &blockchain_transaction.vin {
+                if tx.address.contains(&match_address) {
+                    subtotal_vin += tx.value.parse::<i32>().unwrap();
+                }
+            }
+
+            for tx in &blockchain_transaction.vout {
+                if tx.address.contains(&match_address) {
+                    subtotal_vout += tx.value.parse::<i32>().unwrap();
+                }
+            }
 
             balance += &subtotal_vout - &subtotal_vin
         }
