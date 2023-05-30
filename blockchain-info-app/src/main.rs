@@ -68,6 +68,7 @@ fn blockchain_info_app(address: &str){
             println!("BALANCE:         {}", &balance);
             println!("-----------------------------------------------------");
         };
+
         println!("CURRENT BALANCE:     {}", &balance);
         println!("         IN BTC:     {}\n\n", balance as f32 * 0.00000001);
     }
@@ -76,5 +77,4 @@ fn blockchain_info_app(address: &str){
 fn main() {
     let entered_address = dotenv::var("WALLET").expect("Error reading env var.");
     blockchain_info_app(&entered_address);
-
 }
