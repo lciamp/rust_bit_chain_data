@@ -11,6 +11,7 @@ use {
     crate::blockchain_address::BlockchainAddress,
     crate::blockchain_transaction::BlockchainTransaction,
     dotenv,
+    io,
     std::{thread, time},
     time::Duration,
 };
@@ -25,7 +26,17 @@ fn blockchain_info_app(address: &str){
     let sleep_time = Duration::from_millis(2500);
     thread::sleep(sleep_time);
 
-    println!("\nYou have a total of {} transactions.", &blockchain_address.txids.len())
+    println!("\nYou have a total of {} transactions.", &blockchain_address.txids.len());
+
+    println!("\nDo you want to query these transactions? (y/n)\n")
+
+    let mut command = String::new();
+    io::stdin().read_line(&mut command);
+
+    if command.trim().eq("y") {
+
+    }
+
 }
 
 fn main() {
