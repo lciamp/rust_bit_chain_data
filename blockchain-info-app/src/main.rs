@@ -48,18 +48,18 @@ fn blockchain_info_app(address: &str){
             let match_address = String::from(address);
 
             for tx in &blockchain_transaction.vin {
-                if tx.address.contains(&match_address) {
+                if tx.addresses.contains(&match_address) {
                     subtotal_vin += tx.value.parse::<i32>().unwrap();
                 }
             }
 
             for tx in &blockchain_transaction.vout {
-                if tx.address.contains(&match_address) {
+                if tx.addresses.contains(&match_address) {
                     subtotal_vout += tx.value.parse::<i32>().unwrap();
                 }
             }
 
-            balance += &subtotal_vout - &subtotal_vin
+            balance += &subtotal_vout - &subtotal_vin;
 
             println!("-----------------------------------------------------");
             println!("TX ID:           {}", &blockchain_transaction.txid);
