@@ -39,6 +39,14 @@ fn blockchain_info_app(address: &str){
         thread::sleep(sleep_time);
 
         let mut balance: i32 = 0;
+        for tx_id in &blockchain_address.txids {
+            let mut subtotal_vin: i32 = 0;
+            let mut subtotal_vout: i32 = 0;
+
+            //
+
+            balance += &subtotal_vout - &subtotal_vin
+        }
     }
 }
 
