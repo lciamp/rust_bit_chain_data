@@ -35,8 +35,10 @@ fn blockchain_info_app(address: &str){
 
     if command.trim().eq("y") {
         println!("\nWe will look up the following transactions:\n");
-        thread::sleep(sleep_time);
         println!("{:#?}", &blockchain_address.txids);
+        thread::sleep(sleep_time);
+
+        let mut balance: i32 = 0;
     }
 }
 
