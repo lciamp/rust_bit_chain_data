@@ -20,7 +20,7 @@ fn blockchain_info_app(address: &str){
     println!("\n\nQuerying {} - chain: {}\n\n", &blockchain_status.blockbook.coin, &blockchain_status.backend.chain);
     
     let blockchain_address: BlockchainAddress = blockchain_info::blockchain_address_request(address);
-    println!("\nAnalyzing ttransactions for Bitcoin address: {}", &blockchain_address.address);
+    println!("\nAnalyzing transactions for Bitcoin address: {}", &blockchain_address.address);
 
     let sleep_time = Duration::from_millis(2500);
     thread::sleep(sleep_time);
