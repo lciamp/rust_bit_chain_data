@@ -11,7 +11,7 @@ use {
     crate::blockchain_address::BlockchainAddress,
     crate::blockchain_transaction::BlockchainTransaction,
     dotenv,
-    io,
+    std::io,
     std::{thread, time},
     time::Duration,
 };
@@ -28,21 +28,20 @@ fn blockchain_info_app(address: &str){
 
     println!("\nYou have a total of {} transactions.", &blockchain_address.txids.len());
 
-    println!("\nDo you want to query these transactions? (y/n)\n")
+    println!("\nDo you want to query these transactions? (y/n)\n");
 
     let mut command = String::new();
     io::stdin().read_line(&mut command);
 
     if command.trim().eq("y") {
-
+        println!("\nWe will look up the following transactions:\n");
+        thread::sleep(sleep_time);
+        println!("{:#?}", &blockchain_address.txids);
     }
-
 }
 
 fn main() {
     let entered_address = dotenv::var("WALLET").expect("Error reading env var.");
     blockchain_info_app(&entered_address);
-
-
 
 }
